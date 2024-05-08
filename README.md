@@ -20,4 +20,4 @@ Este é um projeto desenvolvido para a disciplina de Engenharia de Software. O o
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE.md para mais detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo [Licença](./LICENSE) para mais detalhes.
