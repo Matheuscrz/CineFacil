@@ -18,6 +18,6 @@ Este é um projeto desenvolvido para a disciplina de Engenharia de Software. O o
 
 ## Como Executar
 
-## Contribuições
+## Licença
 
-Contribuições são bem-vindas! Por favor, leia o arquivo CONTRIBUTING.md para detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de pull.
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE.md para mais detalhes.
