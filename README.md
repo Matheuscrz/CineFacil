@@ -1,5 +1,3 @@
-# TicketMaster-ProjetoEngSoftware
-
 ## Descrição
 
 Este é um projeto desenvolvido para a disciplina de Engenharia de Software. O objetivo é criar uma plataforma online para venda de ingressos, similar ao modelo do Ingressos.com.
