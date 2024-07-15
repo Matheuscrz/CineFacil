@@ -12,7 +12,7 @@ Este é um projeto desenvolvido para a disciplina de Engenharia de Software. O o
 
 - Front-end:
 - Back-end:
-- Banco de Dados:
+- Banco de Dados: PostgreSQL
 
 ## Como Executar
 
