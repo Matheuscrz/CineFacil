@@ -1,20 +1,37 @@
+# CineFácil - A Plataforma Intuitiva para Compra de Ingressos de Cinema
+
 ## Descrição
 
-Este é um projeto desenvolvido para a disciplina de Engenharia de Software. O objetivo é criar uma plataforma online para venda de ingressos, similar ao modelo do Ingressos.com.
+CineFácil é uma plataforma inovadora que facilita a compra de ingressos de cinema de forma rápida e intuitiva. Nosso objetivo é proporcionar a melhor experiência para os amantes de cinema, permitindo que adquiram seus ingressos com facilidade e segurança.
 
 ## Funcionalidades
 
-1. **Compra de Ingressos:** Os usuários podem pesquisar eventos e comprar ingressos online.
-2. **Venda de Ingressos:** Os organizadores de eventos podem listar seus eventos e vender ingressos.
-3. **Gerenciamento de Eventos:** Os organizadores de eventos podem gerenciar seus eventos listados.
+- **Compra de ingressos online**: Permite aos usuários comprar ingressos para filmes em cartaz.
+- **Visualização de horários e sessões disponíveis**: Exibe os horários e sessões de todos os filmes disponíveis.
+- **Seleção de assentos**: Oferece a opção de escolher os assentos preferidos no cinema.
+- **Pagamento seguro**: Integração com sistemas de pagamento seguros para garantir a proteção dos dados dos usuários.
+- **Recebimento de ingressos digitais**: Envia os ingressos comprados diretamente para o e-mail.
 
 ## Tecnologias Utilizadas
 
-- Front-end:
-- Back-end:
-- Banco de Dados: PostgreSQL
+- **Frontend**: Considerando o uso de VueJS
+- **Backend**: Considerando o uso de C#
+- **Banco de Dados**: Considerando o uso do PostgreSQL
+- **Conteinerização**: Docker
 
 ## Como Executar
+
+- [Em breve]
+
+## Estrutura do Projeto
+
+- **/docs**: Contém a documentação do projeto.
+- **/docker**/: Contém os arquivos de composição do container.
+
+## Requisitos do Sistema
+
+- **Sistema Operacional**: Windows, macOS ou Linux
+- **Docker**: Necessário para a execução dos containers.
 
 ## Licença
 
