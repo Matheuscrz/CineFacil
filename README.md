@@ -10,7 +10,7 @@ CineFácil é uma plataforma inovadora que facilita a compra de ingressos de cin
 - **Visualização de horários e sessões disponíveis**: Exibe os horários e sessões de todos os filmes disponíveis.
 - **Seleção de assentos**: Oferece a opção de escolher os assentos preferidos no cinema.
 - **Pagamento seguro**: Integração com sistemas de pagamento seguros para garantir a proteção dos dados dos usuários.
-- **Recebimento de ingressos digitais**: Envia os ingressos comprados diretamente para o e-mail.
+[EM DISCUSSAO] - **Recebimento de ingressos digitais**: Envia os ingressos comprados diretamente para o e-mail.
 
 ## Tecnologias Utilizadas
 
