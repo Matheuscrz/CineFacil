@@ -1,9 +1,10 @@
 version: "3.8"
+name: cinefacil
 
 services:
   backend:
     build:
-      context: ./backend
+      context: ../backend
       dockerfile: Dockerfile
     volumes:
       - ./backend:/app
@@ -21,7 +22,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ../frontend
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
@@ -39,15 +40,17 @@ services:
 
   db:
     build:
-      context: ./db
+      context: ../db
       dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./logs:/var/log/postgresql
     deploy:
       resources:
         limits:
-          cpus: "1"
+          cpus: "2"
           memory: 2GB
       restart_policy:
         condition: on-failure
@@ -57,7 +60,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4:latest
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@cinefacil
+      PGADMIN_DEFAULT_EMAIL: admin@cinefacil.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
