@@ -51,7 +51,10 @@ CREATE TABLE IF NOT EXISTS cineFacil.filme (
     classificacao cineFacil.classificacao NOT NULL,
     duracao INTEGER NOT NULL,
     sinopse TEXT,
-    dataLancamento DATE NOT NULL
+    dataLancamento DATE NOT NULL,
+    diretor VARCHAR(50) NOT NULL,
+    poster VARCHAR(100) NOT NULL,
+    trailer VARCHAR(100) NOT NULL
 );
 COMMENT ON TABLE cineFacil.filme IS 'Tabela de Filmes';
 
