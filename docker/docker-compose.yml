@@ -32,35 +32,46 @@ services:
       resources:
         limits:
           cpus: "1"
+          memory: 1GB
+      restart_policy:
+        condition: on-failure
+    networks:
+      - cf
+
+  db:
+    build:
+      context: ../db
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DB: ES2
+      POSTGRES_USER: cf
+      POSTGRES_PASSWORD: cinefacil
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./logs:/var/log/postgresql
+    ports:
+      - "5432:5432"
+    networks:
+      - cf
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_EMAIL: admin@cinefacil.com
       PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
     ports:
       - "5050:80"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
     networks:
       - cf
 
-  db:
-    image: postgres
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: cinefacil
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    networks:
-      - cf
-
-volumes:
-  pgadmin-data:
-  db-data:
-
 networks:
   cf:
+    driver: bridge
+
+volumes:
+  pgadmin:
+  db:
