@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS cineFacil.usuario (
     id SERIAL PRIMARY KEY UNIQUE,
-    nome VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL UNIQUE,
-    senha VARCHAR(50) NOT NULL
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(200) NOT NULL
 );
 COMMENT ON TABLE cineFacil.usuario IS 'Tabela de Usuários';
 
