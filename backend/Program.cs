@@ -1,4 +1,5 @@
 using backend.Data;
+using backend.Services;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
@@ -34,6 +35,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<ClientRepository>();
 builder.Services.AddScoped<DatabaseConnection>();
+builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

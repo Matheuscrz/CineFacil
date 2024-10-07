@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
+    /// <summary>
+    /// Modelo de usuário.
+    /// </summary>
     public class UserModel
     {
         public int Id { get; set; }

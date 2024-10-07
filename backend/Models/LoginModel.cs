@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
+    /// <summary>
+    /// Modelo de login.
+    /// </summary>
     public class LoginModel
     {
         [Required]
