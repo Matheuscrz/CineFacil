@@ -13,42 +13,32 @@ namespace backend.Data
 
         public DatabaseConnection(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException(nameof(configuration));
+            _connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            _connection = new NpgsqlConnection(_connectionString);
         }
 
         public IDbConnection GetConnection()
         {
-            if (_connection == null || _connection.State == ConnectionState.Closed)
+            if (_connection == null)
             {
                 _connection = new NpgsqlConnection(_connectionString);
+            }
+
+            if (_connection.State != ConnectionState.Open)
+            {
                 _connection.Open();
             }
+
             return _connection;
         }
 
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
             if (!_disposed)
             {
-                if (disposing)
-                {
-                    _connection?.Close();
-                    _connection?.Dispose();
-                    _connection = null;
-                }
+                _connection?.Dispose();
                 _disposed = true;
             }
-        }
-
-        ~DatabaseConnection()
-        {
-            Dispose(false);
         }
     }
 }
