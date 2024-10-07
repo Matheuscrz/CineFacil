@@ -5,10 +5,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adicione serviços ao contêiner.
 builder.Services.AddControllers();
 
-// Configuração JWT
 var jwtSecret = builder.Configuration["Jwt:Secret"];
 if (string.IsNullOrEmpty(jwtSecret))
 {
@@ -33,17 +31,15 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Adicione os repositórios e conexões
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<ClientRepository>();
 builder.Services.AddScoped<DatabaseConnection>();
 
-// Configuração do Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure o pipeline de solicitações HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

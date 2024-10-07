@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathe\\Documents\\WorkSpace\\CineFacil\\backend\\backend.csproj": {}
+    "D:\\WorkSpace\\CineFacil\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathe\\Documents\\WorkSpace\\CineFacil\\backend\\backend.csproj": {
+    "D:\\WorkSpace\\CineFacil\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathe\\Documents\\WorkSpace\\CineFacil\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\CineFacil\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\mathe\\Documents\\WorkSpace\\CineFacil\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathe\\Documents\\WorkSpace\\CineFacil\\backend\\obj\\",
+        "projectPath": "D:\\WorkSpace\\CineFacil\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\matheus.cruz\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\CineFacil\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\matheus.cruz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -55,19 +55,9 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.0-rc.1.24451.1, )"
-            },
             "Npgsql": {
               "target": "Package",
               "version": "[8.0.4, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[9.0.0-rc.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
