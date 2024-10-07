@@ -7,12 +7,15 @@ using backend.Enums;
 
 namespace backend.Models
 {
+    /// <summary>
+    /// Modelo de administrador.
+    /// </summary>
     public class AdministradorModel
     {
         public int Id { get; set; }
 
         public Cargo Cargo { get; set; }
 
-        public int userId { get; set; }
+        public int UserId { get; set; }
     }
 }
