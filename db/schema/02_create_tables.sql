@@ -149,3 +149,12 @@ CREATE TABLE IF NOT EXISTS cineFacil.pagamento (
     FOREIGN KEY (pedidoId) REFERENCES cineFacil.pedido(id)
 );
 COMMENT ON TABLE cineFacil.pagamento IS 'Tabela de Pagamentos';
+
+CREATE TABLE IF NOT EXISTS cinefacil.session_tokens (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    token VARCHAR(500) NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES cineFacil.usuario(id)
+);
