@@ -16,19 +16,33 @@ namespace backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserRepository _userRepository;
+        private readonly ClientRepository _clientRepository;
         private readonly IConfiguration _configuration;
 
-        public UserController(UserRepository userRepository, IConfiguration configuration)
+        public UserController(UserRepository userRepository, ClientRepository clientRepository, IConfiguration configuration)
         {
             _userRepository = userRepository;
+            _clientRepository = clientRepository;
             _configuration = configuration;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserModel user)
+        public async Task<IActionResult> RegisterClient([FromBody] RegisterRequestModel request)
         {
+            var user = new UserModel
+            {
+                Nome = request.Nome,
+                Email = request.Email,
+                Senha = request.Senha
+            };
             var userId = await _userRepository.CreateUserAsync(user);
-            return Ok(new { Id = userId });
+
+            var clientId = await _clientRepository.CreateClienteAsync(userId, request.Cpf, request.DataNascimento, request.Telefone);
+
+            var token = GenerateJwtToken(user);
+            await _userRepository.SaveSessionTokenAsync(userId, token);
+
+            return Ok(new { UserId = userId, ClienteId = clientId, Token = token });
         }
 
         [HttpPost("login")]
@@ -41,13 +55,26 @@ namespace backend.Controllers
             }
 
             var token = GenerateJwtToken(user);
+            await _userRepository.SaveSessionTokenAsync(user.Id, token);
             return Ok(new { Token = token });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] string token)
+        {
+            await _userRepository.DeactivateSessionTokenAsync(token);
+            return Ok("Logout realizado com sucesso.");
         }
 
         private string GenerateJwtToken(UserModel user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Secret"]);
+            var secret = _configuration["Jwt:Secret"];
+            if (string.IsNullOrEmpty(secret))
+            {
+                throw new InvalidOperationException("JWT Secret is not configured.");
+            }
+            var key = Encoding.ASCII.GetBytes(secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
