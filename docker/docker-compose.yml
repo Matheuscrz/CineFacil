@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/app
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - db
     deploy:
