@@ -1,5 +1,8 @@
 namespace backend.Enums
 {
+    /// <summary>
+    /// Enum de gênero.
+    /// </summary>
     public enum Genero
     {
         Ação,

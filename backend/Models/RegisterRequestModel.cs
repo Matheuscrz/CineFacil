@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
+    /// <summary>
+    /// Modelo de requisição de registro.
+    /// </summary>
     public class RegisterRequestModel
     {
         [Required]
@@ -18,12 +21,13 @@ namespace backend.Models
         public string Senha { get; set; } = string.Empty;
 
         [Required]
+        [StringLength(11)]
         public string Cpf { get; set; } = string.Empty;
 
         [Required]
         public DateTime DataNascimento { get; set; }
 
-        [Required]
+        [StringLength(15)]
         public string Telefone { get; set; } = string.Empty;
     }
 }

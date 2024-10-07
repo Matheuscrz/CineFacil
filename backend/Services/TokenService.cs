@@ -13,18 +13,13 @@ namespace backend.Services
     /// <summary>
     /// Serviço de token.
     /// </summary>
-    public class TokenService
+    /// <remarks>
+    /// Construtor do serviço de token.
+    /// </remarks>
+    /// <param name="configuration"></param>
+    public class TokenService(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
-
-        /// <summary>
-        /// Construtor do serviço de token.
-        /// </summary>
-        /// <param name="configuration"></param>
-        public TokenService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        private readonly IConfiguration _configuration = configuration;
 
         /// <summary>
         /// Gera um token JWT.
