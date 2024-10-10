@@ -6,10 +6,10 @@ services:
     build:
       context: ../backend
       dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5084:5084"
     depends_on:
       - db
     deploy:
@@ -20,25 +20,8 @@ services:
       restart_policy:
         condition: on-failure
     networks:
-      - cf
-
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/app
-    depends_on:
-      - backend
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 1GB
-      restart_policy:
-        condition: on-failure
-    networks:
-      - cf
+      rede:
+        ipv4_address: 172.16.238.10
 
   db:
     build:
@@ -54,7 +37,8 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - cf
+      rede:
+        ipv4_address: 172.16.238.11
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -68,11 +52,14 @@ services:
     depends_on:
       - db
     networks:
-      - cf
+      - rede
 
 networks:
-  cf:
+  rede:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.238.0/24
 
 volumes:
   pgadmin:
